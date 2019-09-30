@@ -78,4 +78,7 @@ services:
       - realtime
       - customers_web
       - vehiclesweb
+    environment:
+      DOCKER_HOST: 'localhost'
+
 
