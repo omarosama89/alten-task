@@ -70,7 +70,7 @@ services:
 
   frontend:
     image: omarosama/alten-frontend
-    #    build:
+#    build:
 #      context: alten-frontend
 #      dockerfile: Dockerfile
     command: npm start
