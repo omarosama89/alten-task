@@ -12,9 +12,10 @@ services:
       POSTGRES_PORT: '5432'
 
   customers_web:
-    build:
-      context: backends/alten-customers
-      dockerfile: Dockerfile
+    image: omarosama/alten-customers
+#    build:
+#      context: backends/alten-customers
+#      dockerfile: Dockerfile
     entrypoint: sh ./entry-point.sh
     command: python manage.py runserver 0.0.0.0:8000
     volumes:
@@ -38,9 +39,10 @@ services:
       POSTGRES_PORT: '5432'
 
   vehiclesweb:
-    build:
-      context: backends/alten-vehicles
-      dockerfile: Dockerfile
+    image: omarosama/alten-vehicles
+#    build:
+#      context: backends/alten-vehicles
+#      dockerfile: Dockerfile
     entrypoint: sh ./entry-point.sh
     command: python manage.py runserver 0.0.0.0:8000
     volumes:
@@ -56,9 +58,10 @@ services:
       DOCKER_REALTIME_HOSTNAME: 'realtime'
 
   realtime:
-    build:
-      context: alten-realtime
-      dockerfile: Dockerfile
+    image: omarosama/alten-realtime
+#    build:
+#      context: alten-realtime
+#      dockerfile: Dockerfile
     command: npm start 3001
     volumes:
       - ./alten-realtime/:/realtime_code
@@ -66,9 +69,10 @@ services:
       - "3001:3001"
 
   frontend:
-    build:
-      context: alten-frontend
-      dockerfile: Dockerfile
+    image: omarosama/alten-frontend
+    #    build:
+#      context: alten-frontend
+#      dockerfile: Dockerfile
     command: npm start
     volumes:
       - ./alten-frontend/:/frontend_code
